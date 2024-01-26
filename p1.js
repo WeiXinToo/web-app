@@ -83,7 +83,7 @@ function resetTimer() {
   data.min= 0;
   data.sec= 0;
   data.count= 0;
-  divElement.textContent = '00:00:00';
+  divElement.innerHTML = '<div><span>00</span><sub>hr</sub> : <span>00</span><sub>min</sub> : <span>00</span><sub>s</sub></div>';
   alert('Your timer is reset!');
 }
 
@@ -98,11 +98,17 @@ function formatTime() {
   data.min = String(Math.floor((data.pauseTime % (3600*1000))/ (60*1000))).padStart(2, '0');
   data.sec = String(Math.floor(((data.pauseTime) % (60*1000)) / 1000)).padStart(2, '0');
   //data.count = String(Math.floor(data.pauseTime % 1000)).padStart(2, '0');
-  divElement.textContent = `
-  ${data.hr}:${data.min}:${data.sec}`;
+  divElement.innerHTML = `
+  <div><span>${data.hr}</span><sub>hr</sub> : <span>${data.min}</span><sub>min</sub> : <span>${data.sec}</span><sub>s</sub></div>`;
 }
+
 
 function updateTimerDisplay(){
   
   data.intervalID = setInterval(()=> formatTime(), 75);
 }
+
+
+//problem to solve:
+// 1. display the stored timer count after each refresh.
+// 2. prevent second ++ after each refresh.
