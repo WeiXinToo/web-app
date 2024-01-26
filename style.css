@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+/* || CSS RESET*/
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+/* || VARIABLES*/
+:root {
+ --BGCOLOR:#eaedf4;
+ --DARK: #272736;
+ --LIGHT-PURPLE: #c0a2f4;
+ --DARK-PURPLE: #7633e4;
+ --FONT-COLOR:#fffbf0;
+ --WhiteBG: #fff;
+
+ --FF-1: 'Raleway';
+ --LETTER-SPACING-START: 0.8rem;
+ --LETTER-SPACING-END: 1.6rem;
+ --SUB-SIZE:0.6rem;
+
+ --PADDING: 0.25em 0.5em;
+ --MARGIN: 0.5rem auto;
+
+ 
+}
+
+/*GENERAL STYLES*/
+body{
+  font-family: var(--FF-1), sans-serif;
+  font-size: 1.5rem;
+  width:100%;
+  height:100dvh;
+  background-color: var(--BGCOLOR);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 500px;
+  padding: var(--PADDING);
+  height: fit-content;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  overflow: hidden;
+
+  background-color: var(--WhiteBG);
+  border-radius: 0.3rem;
+
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.container {
+  padding: 0.5em;
+}
+
+h1 {
+  color: var(--DARK-PURPLE);
+  letter-spacing: var(--LETTER-SPACING-START);
+}
+
+span {
+  color: var(--LIGHT-PURPLE);
+}
+
+sub {
+  font-size: var(--SUB-SIZE);
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+button {
+  position: relative;
+  padding: 0.25em 0.25em;
+  border: none;
+  border-radius: 0.35rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  transition: opacity 0.15s, animation 0.15s;
+}
+
+.logo {
+  position: relative;
+  width: 40%;
+  height: auto;
+  z-index: 2;
+}
+
+/*STATES*/
+main:hover {
+  transform: translate(-0.1rem, -0.1rem);
+  box-shadow: 0.2rem 0.2rem 0.5rem 0.2rem var(--DARK);
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+button:active {
+  opacity: 0.75;
+}
+
+
+/*Custom Property*/
+@property --a
+{
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* || Animations*/
+
+/*Title*/
+h1 {
+  animation: dancing-letter 2s ease-in-out 0.15s infinite;
+}
+
+@keyframes dancing-letter {
+  from {
+    letter-spacing: var(--LETTER-SPACING-START) ;
+  }
+  50% {
+    letter-spacing: var(--LETTER-SPACING-END);
+  }
+  to {letter-spacing: var(--LETTER-SPACING-START);}
+
+}
+
+/*Button*/
+.animate-button:hover {
+  
+  background: repeating-conic-gradient(from var(--a), var(--LIGHT-PURPLE) 0%, var(--LIGHT-PURPLE) 5%,transparent 5%, transparent 40%, var(--LIGHT-PURPLE) 100%);
+  animation: animate 1s linear infinite alternate forwards;
+}
+
+.animate-button:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.35rem;
+  background: repeating-conic-gradient(from var(--a), lime 0%, lime 5%,transparent 5%, transparent 40%, lime 100%);
+  animation: animate 1s linear -0.5s infinite alternate forwards;
+  
+}
+
+.animate-button::after {
+  width: 95%;
+  height: auto;
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 0.35rem;
+  background-color: var(--DARK-PURPLE);
+}
+
+@keyframes animate {
+  0% {
+    --a:0deg;
+  }
+  100% {
+    --a: 360deg;
+  }
+}
+
