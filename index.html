@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="p1.css">
-  <title>Stopwatch</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="A simple functional timer program with css styling.">
+  <meta name="author" content="Too Wei Xin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer</title>
+  <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <div class="flex-box">
+  <main>
 
-    <div class="title-container">
-      <div class="title-name">
-        Stopwatch
-      <img class="timer-icon" src="timer-logo.png" alt="">
-      </div>
-    </div>
+    <section class="container">
+        <h1>Timer</h1>
+    </section>
 
-    <div class="timer-container">
-      <p class="timer-info">hh:mm:ss</p>
-      <div class="timer-count js-timer-count">00:00:00</div>
-    </div>
+    <section class="container">
+      <div class="timer-count js-timer-count"><span class="timer-component">00</span><sub>hr</sub> : <span class="timer-component">00</span><sub>min</sub> : <span class="timer-component">00</span><sub>s</sub></div>
+    </section>
+
+    <section class="container button-container">
+      <button class="animate-button js-start-button"><img class="logo" src="/icons8-play-64.png" alt="A start button." width="64" height="64"></button>
+      <button class="animate-button js-stop-button"><img class="logo" src="icons8-stop-64.png" alt="A stop button." width="64" height="64"></button>
+      <button class="animate-button js-reset-button"><img class="logo" src="icons8-reset-64.png" alt="A reset Button" width="64" height="64"></button>
+    </section>
     
-    <div class="button-container">
-      <button class="start-button js-start-button">Start</button>
-      <button class="stop-button js-stop-button">Stop</button>
-      <button class="reset-button js-reset-button">Reset</button>
-    </div>
-    
-  </div>
+  </main>
   
-  <script src="p1.js"></script>
+  <script src="/p1.js"></script>
 </body>
 </html>
