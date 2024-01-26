@@ -89,7 +89,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  background-color: transparent;
   transition: opacity 0.15s, animation 0.15s;
 }
 
@@ -145,7 +145,7 @@ h1 {
 .animate-button:hover {
   
   background: repeating-conic-gradient(from var(--a), var(--LIGHT-PURPLE) 0%, var(--LIGHT-PURPLE) 5%,transparent 5%, transparent 40%, var(--LIGHT-PURPLE) 100%);
-  animation: animate 1s linear infinite alternate forwards;
+  animation: animate 2s linear infinite forwards;
 }
 
 .animate-button:hover::before {
@@ -157,11 +157,12 @@ h1 {
   height: 100%;
   border-radius: 0.35rem;
   background: repeating-conic-gradient(from var(--a), lime 0%, lime 5%,transparent 5%, transparent 40%, lime 100%);
-  animation: animate 1s linear -0.5s infinite alternate forwards;
+  animation: animate 1s linear -0.5s infinite forwards;
   
 }
 
 .animate-button::after {
+
   width: 95%;
   height: auto;
   content: "";
